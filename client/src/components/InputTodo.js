@@ -15,7 +15,8 @@ function InputTodo() {
                 body: JSON.stringify({ description })
             });
 
-            console.log(response);
+            // console.log(response);
+            window.location = "/";
         } catch (error) {
             console.log(error);
         }
