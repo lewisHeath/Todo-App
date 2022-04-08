@@ -9,7 +9,7 @@ function EditTodo({ todo }) {
         try {
             e.preventDefault();
             const body = { description };
-            const response = await fetch(`http://localhost:5000/todos/${todo.id}`, {
+            const response = await fetch(`https://stormy-citadel-58837.herokuapp.com/todos/${todo.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -28,13 +28,13 @@ function EditTodo({ todo }) {
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target={`#id${todo.id}`} >
                 Edit
             </button>
-            <div class="modal" id={`id${todo.id}`}>
+            <div class="modal" id={`id${todo.id}`} onClick={() => setDescription(todo.description)}>
             <div class="modal-dialog">
                 <div class="modal-content">
 
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Todo</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" onClick={() => setDescription(todo.description)}>&times;</button>
                 </div>
 
                 <div class="modal-body">
@@ -43,7 +43,7 @@ function EditTodo({ todo }) {
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-dismiss="modal" onClick={e => updateDescription(e)}>Edit</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onClick={() => setDescription(todo.description)}>Close</button>
                 </div>
 
                 </div>

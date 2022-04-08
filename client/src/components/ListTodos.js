@@ -8,7 +8,7 @@ function ListTodos() {
     //delete todo function 
     async function deleteTodo(id) {
         try {
-            const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
+            const deleteTodo = await fetch(`https://stormy-citadel-58837.herokuapp.com/todos/${id}`, {
                 method: 'DELETE'
             });
             // console.log(deleteTodo);
@@ -20,7 +20,7 @@ function ListTodos() {
 
     async function fetchTodos() {
         try {
-            const response = await fetch('http://localhost:5000/todos');
+            const response = await fetch('https://stormy-citadel-58837.herokuapp.com/todos');
             const data = await response.json();
             setTodos(data);
         } catch (error) {

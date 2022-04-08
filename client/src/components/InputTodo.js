@@ -7,7 +7,7 @@ function InputTodo() {
     async function onSubmitForm(e) {
         try {
             e.preventDefault();
-            const response = await fetch('http://localhost:5000/todos', {
+            const response = await fetch('https://stormy-citadel-58837.herokuapp.com/todos', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
