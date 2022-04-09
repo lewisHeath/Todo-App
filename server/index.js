@@ -67,6 +67,20 @@ app.delete("/todos/:id", async (req, res) => {
     }
 });
 
+//create sign in 
+app.post('/signin', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const signIn = await pool.query('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password]);
+        console.log(signIn.rows);
+        if (signIn.rows.length > 0) {
+            res.json('You are signed in');
+        }
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);

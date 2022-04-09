@@ -16,7 +16,7 @@ function InputTodo() {
             });
 
             // console.log(response);
-            window.location = "/";
+            window.location = "/to-do-list";
         } catch (error) {
             console.log(error);
         }
